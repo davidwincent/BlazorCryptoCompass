@@ -1,0 +1,28 @@
+﻿@page "/crypto"
+@inject AppState state
+
+<h1>Crypto compass</h1>
+
+@if (state.Loading)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in state.BinanceTickers)
+            {
+                <tr>
+                    <td>@t.symbol</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
